@@ -49,21 +49,43 @@ The R layer runs in its own Docker container. The Python backend calls it via su
 
 ---
 
-## Quick Start
+## Installation
 
-### With Docker (recommended)
+The only requirement is **Docker Desktop**. The installer handles everything else automatically — R packages, Python dependencies, and the web server.
+
+### macOS / Linux — one command
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/DANTONIO-BIT/rnaseq-visualizer-ai/main/install.sh)
+```
+
+Or download the repo and run locally:
 
 ```bash
 git clone https://github.com/DANTONIO-BIT/rnaseq-visualizer-ai.git
-cd rnaseq-visualizer-ai
-docker-compose up --build
+bash rnaseq-visualizer-ai/install.sh
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+### Windows — double-click install
 
-The first build takes a few minutes — it installs Bioconductor packages inside the R container.
+1. Download the repo as a ZIP from GitHub (green **Code** button → **Download ZIP**)
+2. Extract the folder
+3. Double-click **`install.bat`**
 
-### Local development (requires R ≥ 4.3 and Python 3.12)
+A PowerShell window will open and handle everything, including installing Docker if needed.
+
+---
+
+**First run takes 10–20 minutes** — the R container downloads and compiles Bioconductor packages. Subsequent launches take a few seconds.
+
+### After installation
+
+| Action | macOS / Linux | Windows |
+|--------|--------------|---------|
+| Start the app | `bash start.sh` | double-click `start.bat` or run `start.ps1` |
+| Stop the app  | `bash stop.sh`  | run `stop.ps1` |
+
+### Manual setup (developers)
 
 ```bash
 # Backend
@@ -73,12 +95,10 @@ pip install -r requirements.txt
 uvicorn app.main:app --reload --port 8000
 
 # Frontend (separate terminal)
-cd frontend
-npm install
-npm run dev          # http://localhost:3000
+cd frontend && npm install && npm run dev   # http://localhost:3000
 ```
 
-Make sure `Rscript` is in your PATH, or set `R_EXECUTABLE` in `backend/.env`.
+Set `R_EXECUTABLE` in `backend/.env` if `Rscript` is not in your PATH.
 
 ---
 
