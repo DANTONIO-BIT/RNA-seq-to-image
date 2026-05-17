@@ -56,14 +56,14 @@ The only requirement is **Docker Desktop**. The installer handles everything els
 ### macOS / Linux — one command
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/DANTONIO-BIT/rnaseq-visualizer-ai/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/DANTONIO-BIT/RNA-seq-to-image/main/install.sh)
 ```
 
 Or download the repo and run locally:
 
 ```bash
-git clone https://github.com/DANTONIO-BIT/rnaseq-visualizer-ai.git
-bash rnaseq-visualizer-ai/install.sh
+git clone https://github.com/DANTONIO-BIT/RNA-seq-to-image.git
+bash RNA-seq-to-image/install.sh
 ```
 
 ### Windows — double-click install

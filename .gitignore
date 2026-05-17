@@ -42,6 +42,9 @@ Rplots.pdf
 # Keep docker-compose.yml and Dockerfiles; ignore runtime volumes
 docker-volumes/
 
+# ─── Internal dev notes (not for public repos) ────────────────────────────────
+CLAUDE.md
+
 # ─── OS & editors ─────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
