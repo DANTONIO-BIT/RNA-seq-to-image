@@ -1,0 +1,34 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - r_scripts:/r-engine/scripts
+      - uploads:/tmp/rnaseq_uploads
+    environment:
+      - R_SCRIPTS_DIR=/r-engine/scripts
+      - R_EXECUTABLE=/usr/bin/Rscript
+    depends_on:
+      - r-engine
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  r-engine:
+    build: ./r-engine
+    volumes:
+      - r_scripts:/r-engine/scripts
+      - uploads:/tmp/rnaseq_uploads
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+
+volumes:
+  r_scripts:
+  uploads:

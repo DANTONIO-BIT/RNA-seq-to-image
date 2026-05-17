@@ -1,0 +1,56 @@
+# ─── Node / Frontend ──────────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# ─── Python / Backend ─────────────────────────────────────────────────────────
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.eggs/
+build/
+*.so
+
+# ─── Environment & secrets ────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# ─── Uploads & generated data ─────────────────────────────────────────────────
+# Never commit user-uploaded datasets or generated plots
+backend/uploads/
+backend/tmp/
+*.csv.upload
+*.tsv.upload
+
+# ─── R artifacts ──────────────────────────────────────────────────────────────
+*.Rhistory
+*.RData
+*.Rproj.user/
+Rplots.pdf
+
+# ─── Docker ───────────────────────────────────────────────────────────────────
+# Keep docker-compose.yml and Dockerfiles; ignore runtime volumes
+docker-volumes/
+
+# ─── OS & editors ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.code-workspace
+
+# ─── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
